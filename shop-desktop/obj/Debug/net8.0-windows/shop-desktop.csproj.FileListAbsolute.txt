@@ -17,3 +17,5 @@ D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0-windows\refint\shop-d
 D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0-windows\shop-desktop.pdb
 D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0-windows\shop-desktop.genruntimeconfig.cache
 D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0-windows\ref\shop-desktop.dll
+D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0-windows\shop-desktop_Content.g.cs
+D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0-windows\shop-desktop.sourcelink.json
