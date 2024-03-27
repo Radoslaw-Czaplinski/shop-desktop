@@ -1,5 +1,0 @@
-D:\shop-desktop\shop-desktop\shop-desktop\out\shop-desktop.exe
-D:\shop-desktop\shop-desktop\shop-desktop\out\shop-desktop.dll
-D:\shop-desktop\shop-desktop\shop-desktop\out\shop-desktop.deps.json
-D:\shop-desktop\shop-desktop\shop-desktop\out\shop-desktop.runtimeconfig.json
-D:\shop-desktop\shop-desktop\shop-desktop\out\shop-desktop.pdb
