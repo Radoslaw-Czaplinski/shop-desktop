@@ -9,12 +9,12 @@ shop_desktop
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\shop-desktop\shop-desktop\shop-desktop\App.xaml
-3-1147758336
+
+5-214533574
 110783395
-10992538453
+131083218138
 2231310099445
-LoginWindow.xaml;MainWindow.xaml;RegistrationWindow.xaml;
+RegistrationWindow.xaml;Views\AddPostWindow.xaml;Views\App.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;
 
 False
 
