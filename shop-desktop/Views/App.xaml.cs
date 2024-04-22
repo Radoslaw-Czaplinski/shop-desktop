@@ -9,13 +9,20 @@ namespace shop_desktop
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
+{
+    protected override void OnStartup(StartupEventArgs e)
     {
-        [STAThread]
-        public static void Main()
-        {
-            var app = new App();
-            app.InitializeComponent();
-            app.Run();
-        }
+        base.OnStartup(e);
+        MainWindow mainWindow = new MainWindow(); 
+        mainWindow.Show();
     }
+
+    [STAThread]
+    public static void Main()
+    {
+        App app = new App();
+        app.InitializeComponent();
+        app.Run();  // Błąd mógł wystąpić podczas uruchamiania aplikacji
+    }
+}
 }

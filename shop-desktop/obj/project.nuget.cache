@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZSFTyZyv3lf2HAnCX28plysPwtaGFec2y7fM+eaMNfWHx5/NAnZ4dhgsLxYEsC6V89vZ0IN1W14gD254JlpYMQ==",
+  "dgSpecHash": "Zus+7h9XXumUN3Rf/Bht2uwP5cfIpDKM3M9LtDdsK03V1QfwsDsnp5XovS2nhss1PpCQq0/CDRNE3SIpbG5+dA==",
   "success": true,
   "projectFilePath": "D:\\shop-desktop\\shop-desktop\\shop-desktop\\shop-desktop.csproj",
   "expectedPackageFiles": [
@@ -24,5 +24,16 @@
     "C:\\Users\\Radek\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1901",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Identity.Client' 4.59.0 has a known low severity vulnerability, https://github.com/advisories/GHSA-x674-v45j-fwxw",
+      "libraryId": "Microsoft.Identity.Client",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }

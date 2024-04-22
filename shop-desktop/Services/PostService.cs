@@ -1,30 +1,38 @@
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using shop_desktop.Models;
 
 namespace shop_desktop.Services
 {
-    public class PostService
+    public class PostService : INotifyPropertyChanged
     {
-        private List<Post> posts;
+        private ObservableCollection<Post> posts;
 
         public PostService()
         {
-            // Inicjalizacja listy postów
-            posts = new List<Post>();
+            posts = new ObservableCollection<Post>();
+            // Example posts
+            AddPost("Sample Title 1", "Sample Content 1", "Author 1");
+            AddPost("Sample Title 2", "Sample Content 2", "Author 2");
         }
 
-        // Metoda dodająca nowy post do listy
+        public ObservableCollection<Post> LoadPosts()
+        {
+            return posts;
+        }
+
         public void AddPost(string title, string content, string author)
         {
-            Post newPost = new Post { Title = title, Content = content, Author = author };
+            var newPost = new Post { Title = title, Content = content, Author = author };
             posts.Add(newPost);
+            OnPropertyChanged("Posts");
         }
 
-        // Metoda pobierająca wszystkie posty
-        public List<Post> GetPosts()
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
         {
-            // Zwrócenie listy postów
-            return posts;
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

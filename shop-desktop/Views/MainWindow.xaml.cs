@@ -1,76 +1,38 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
+using System.Linq;
+using shop_desktop.ViewModels;
 using shop_desktop.Services;
+using shop_desktop.Models;
 using shop_desktop.Views;
 
 namespace shop_desktop
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly PostService postService;
-        private bool isUserLoggedIn = true;
-        private AddPostWindow addPostWindow; 
-
         public MainWindow()
         {
             InitializeComponent();
-            postService = new PostService();
-            LoadPosts();
+            DataContext = new MainViewModel(new PostService());
         }
 
-        private void LoadPosts()
+        public void LoadPosts()
         {
-            // Pobieramy posty z serwisu i przypisujemy je do ListBox
-            postListBox.ItemsSource = postService.GetPosts();
-        }
-
-        // Metoda obsługująca zdarzenie kliknięcia przycisku Log in
-        private void Login_Click(object sender, RoutedEventArgs e)
-        {
-            // Tutaj umieść logikę logowania
-            LoginWindow loginWindow = new LoginWindow();
-            loginWindow.Show();
-        }
-
-        // Metoda obsługująca zdarzenie kliknięcia przycisku Register
-        private void Register_Click(object sender, RoutedEventArgs e)
-        {
-            // Tutaj otwórz okno rejestracji użytkownika
-            var registrationWindow = new RegistrationWindow();
-            registrationWindow.Show();
-        }
-
-        // Metoda obsługująca zdarzenie kliknięcia przycisku Skip login
-        private void SkipLogin_Click(object sender, RoutedEventArgs e)
-        {
-            // Tutaj umieść logikę pominięcia logowania
-        }
-
-        private void AddPostButton_Click(object sender, RoutedEventArgs e)
-        {
-            if (isUserLoggedIn)
+            if (DataContext is MainViewModel viewModel)
             {
-                // Utwórz nowe okno dodawania posta
-                addPostWindow = new AddPostWindow(postService);
-                // Wyświetl okno
-                addPostWindow.Closed += AddPostWindow_Closed;
-                addPostWindow.Show();
+                viewModel.LoadPosts();
             }
-            else
+        }
+        private void PostsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is ListView listView && listView.SelectedItem is Post selectedPost)
             {
-                MessageBox.Show("Aby dodać wpis, należy się zalogować.");
+                PostDetailsWindow detailsWindow = new PostDetailsWindow(selectedPost);
+                detailsWindow.ShowDialog();
             }
         }
 
-        private void AddPostWindow_Closed(object sender, EventArgs e)
-        {
-            if (addPostWindow.DialogResult.HasValue && addPostWindow.DialogResult.Value)
-            {
-                // Zaktualizuj wyświetlanie postów
-                LoadPosts();
-            }
-        }
+
     }
 }

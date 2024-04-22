@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 
-5-214533574
+61880975230
 110783395
-131083218138
-2231310099445
-RegistrationWindow.xaml;Views\AddPostWindow.xaml;Views\App.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;
+18-748557907
+2231860199121
+Views\AddPostWindow.xaml;Views\App.xaml;Views\LoginWindow.xaml;Views\MainWindow.xaml;Views\PostDetailsWindow.xaml;Views\RegistrationWindow.xaml;
 
 False
 

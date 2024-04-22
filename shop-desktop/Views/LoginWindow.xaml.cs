@@ -22,6 +22,10 @@ namespace shop_desktop
             // Otwórz okno rejestracji
             var registrationWindow = new RegistrationWindow();
             registrationWindow.Show();
+        }
+         private void CancelButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close(); // Zamknięcie okna
         }      
     }
 }
