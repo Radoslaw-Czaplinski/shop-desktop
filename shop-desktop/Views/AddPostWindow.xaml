@@ -18,7 +18,7 @@
         <Label Content="Content:" Grid.Row="1" Grid.Column="0" Margin="5"/>
         <TextBox x:Name="ContentTextBox" Grid.Row="1" Grid.Column="1" Margin="5" Height="100" TextWrapping="WrapWithOverflow"/>
         <Label Content="Author:" Grid.Row="2" Grid.Column="0" Margin="5"/>
-        <TextBox x:Name="AuthorTextBox" Grid.Row="2" Grid.Column="1" Margin="5"/>
+        <TextBox x:Name="AuthorTextBox" Grid.Row="2" Grid.Column="1" Margin="5" />
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center">
             <Button Content="Add Post" Margin="10" Click="AddButton_Click"/>
             <Button Content="Cancel" Margin="10" Click="CancelButton_Click"/>

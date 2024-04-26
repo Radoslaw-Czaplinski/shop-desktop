@@ -11,10 +11,12 @@ namespace shop_desktop
 {
     public partial class MainWindow : Window
     {
+        private PostService postService;
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = new MainViewModel(new PostService());
+            postService = new PostService();
+            DataContext = new MainViewModel(postService);
         }
 
         public void LoadPosts()
@@ -24,15 +26,23 @@ namespace shop_desktop
                 viewModel.LoadPosts();
             }
         }
+
         private void PostsListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             if (sender is ListView listView && listView.SelectedItem is Post selectedPost)
             {
-                PostDetailsWindow detailsWindow = new PostDetailsWindow(selectedPost);
+                // Przekazanie postService jako argument
+                PostDetailsWindow detailsWindow = new PostDetailsWindow(selectedPost, postService, (MainViewModel)DataContext);
                 detailsWindow.ShowDialog();
+
+                // Po zamknięciu okna szczegółów, zaktualizuj widok listy postów na stronie głównej
+                if (detailsWindow.DialogResult.HasValue && detailsWindow.DialogResult.Value)
+                {
+                    LoadPosts();
+                }
             }
         }
-
+        
 
     }
 }
