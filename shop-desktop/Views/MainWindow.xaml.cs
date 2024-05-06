@@ -31,11 +31,9 @@ namespace shop_desktop
         {
             if (sender is ListView listView && listView.SelectedItem is Post selectedPost)
             {
-                // Przekazanie postService jako argument
                 PostDetailsWindow detailsWindow = new PostDetailsWindow(selectedPost, postService, (MainViewModel)DataContext);
                 detailsWindow.ShowDialog();
 
-                // Po zamknięciu okna szczegółów, zaktualizuj widok listy postów na stronie głównej
                 if (detailsWindow.DialogResult.HasValue && detailsWindow.DialogResult.Value)
                 {
                     LoadPosts();

@@ -66,13 +66,13 @@ namespace shop_desktop.Views
 
         private void UpdateRatingsListBox()
         {
-            ratingsListBox.ItemsSource = post.Ratings; // Przypisz listę ocen
+            ratingsListBox.ItemsSource = post.Ratings; 
             ratingsListBox.Items.Refresh();
         }
         private void EditButton_Click(object sender, RoutedEventArgs e)
         {
             var editWindow = new AddPostWindow(postService, mainViewModel, post);
-            editWindow.PostUpdated += UpdatedPostHandler; // Zarejestruj się na zdarzenie zaktualizowanego posta
+            editWindow.PostUpdated += UpdatedPostHandler; 
             editWindow.ShowDialog();
         }
 
@@ -82,7 +82,7 @@ namespace shop_desktop.Views
             if (result == MessageBoxResult.Yes)
             {
                 mainViewModel.DeletePostCommand.Execute(post);
-                this.Close(); // Zamknij okno szczegółów po usunięciu postu
+                this.Close(); 
             }
         }
         private void UpdatedPostHandler(Post updatedPost)
@@ -92,19 +92,17 @@ namespace shop_desktop.Views
         }
         private void ContactAuthor_Click(object sender, RoutedEventArgs e)
         {
-            // Pokazanie formularza kontaktowego
             ContactForm.Visibility = Visibility.Visible;
         }
 
         private void SendContactForm_Click(object sender, RoutedEventArgs e)
         {
-            // Wysłanie formularza (tutaj można dodać walidację i logikę wysyłki)
             MessageBox.Show("Wiadomość została wysłana.", "Komunikat", MessageBoxButton.OK, MessageBoxImage.Information);
-            ContactForm.Visibility = Visibility.Collapsed;  // Ukrycie formularza po wysłaniu
+            ContactForm.Visibility = Visibility.Collapsed; 
         }
         private void IncrementViewsCount()
         {
-            post.ViewsCount++; // Inkrementuj liczbę wyświetleń
+            post.ViewsCount++;
             ViewsCountTextBlock.Text = $"Liczba wyświetleń: {post.ViewsCount}";
         }
 

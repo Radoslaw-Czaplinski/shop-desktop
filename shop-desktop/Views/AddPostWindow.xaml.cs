@@ -36,34 +36,26 @@ namespace shop_desktop.Views
 
         private void AddButton_Click(object sender, RoutedEventArgs e)
         {
-            // Pobierz wprowadzone dane
             string title = TitleTextBox.Text;
             string content = ContentTextBox.Text;
             string author = AuthorTextBox.Text;
             DateTime dateAdded = DateTime.Now;
 
-            // Sprawdź, czy wszystkie pola są wypełnione
             if (!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(content))
             {
                 if (postToEdit != null)
                 {
-                    // Edytuj istniejący post
                     postToEdit.Title = title;
                     postToEdit.Content = content;
-
-                    // Zaktualizuj post w usłudze postów
                     postService.UpdatePost(postToEdit);
                 }
                 else
                 {
-                    // Dodaj nowy post
                     postService.AddPost(title, content, author, dateAdded);
                 }
 
-                // Odśwież listę postów w widoku głównym
                 mainViewModel.LoadPosts();
 
-                // Zamknij okno edycji
                 Close();
             }
             else
@@ -76,7 +68,7 @@ namespace shop_desktop.Views
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close(); // Zamknięcie okna
+            this.Close(); 
         }
     }
 }

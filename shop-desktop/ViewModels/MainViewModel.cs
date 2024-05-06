@@ -36,7 +36,6 @@ namespace shop_desktop.ViewModels
             }
         }
 
-        // Komendy
         public ICommand LoginCommand { get; private set; }
         public ICommand RegisterCommand { get; private set; }
         public ICommand SkipLoginCommand { get; private set; }
@@ -49,12 +48,10 @@ namespace shop_desktop.ViewModels
         public ICommand SendContactMessageCommand { get; private set; }
         public ICommand SortPostsCommand { get; private set; }
 
-        // Konstruktor
         public MainViewModel(PostService postService)
         {
             this.postService = postService;
 
-            // Inicjalizacja komend
             LoginCommand = new RelayCommand(ExecuteLogin);
             RegisterCommand = new RelayCommand(ExecuteRegister);
             SkipLoginCommand = new RelayCommand(ExecuteSkipLogin);
@@ -68,78 +65,65 @@ namespace shop_desktop.ViewModels
             SendContactMessageCommand = new RelayCommand(ExecuteSendContactMessage);
             SortPostsCommand = new RelayCommand(SortPosts);
 
-            // Wczytaj posty przy inicjalizacji
             LoadPosts();
         }
 
-        // Metoda wczytująca posty
         public void LoadPosts()
         {
             Posts = postService.LoadPosts();
         }
 
-        // Metoda wykonująca logowanie
         private void ExecuteLogin(object parameter)
         {
             var loginWindow = new LoginWindow();
             loginWindow.ShowDialog();
         }
 
-        // Metoda wykonująca rejestrację
         private void ExecuteRegister(object parameter)
         {
             var registrationWindow = new RegistrationWindow();
             registrationWindow.ShowDialog();
         }
 
-        // Metoda pomijająca logowanie
         private void ExecuteSkipLogin(object parameter)
         {
             MessageBox.Show("Login skipped. Full access granted.");
         }
 
-        // Metoda odświeżająca listę postów
         private void ExecuteRefresh(object parameter)
         {
             LoadPosts();
         }
 
-        // Metoda dodająca nowy post
         private void ExecuteAddPost(object parameter)
         {
-            var addPostWindow = new AddPostWindow(postService, this, null); // Przekazujemy null, ponieważ dodajemy nowy post
+            var addPostWindow = new AddPostWindow(postService, this, null); 
             addPostWindow.ShowDialog();
             LoadPosts();
         }
-
-        // Metoda wyszukująca posty
         private void ExecuteSearch(object parameter)
         {
             string searchTerm = parameter as string;
 
             if (string.IsNullOrWhiteSpace(searchTerm))
             {
-                // Jeśli fraza jest pusta, wyświetl wszystkie posty
                 FilteredPosts = new ObservableCollection<Post>(Posts);
             }
             else
             {
-                // Filtrowanie postów na podstawie frazy
                 FilteredPosts = new ObservableCollection<Post>(Posts.Where(p => p.Title.Contains(searchTerm) || p.Content.Contains(searchTerm)));
             }
         }
 
-        // Metoda edytująca wybrany post
         private void EditPost(object parameter)
         {
             var postToEdit = parameter as Post;
-            if (postToEdit == null) return; // Jeśli postToEdit jest null, zakończ metodę
+            if (postToEdit == null) return; 
 
             var editPostWindow = new AddPostWindow(postService, this, postToEdit);
             editPostWindow.ShowDialog();
         }
 
-        // Metoda usuwająca wybrany post
         private void DeletePost(object parameter)
         {
             var postToDelete = parameter as Post;
@@ -148,27 +132,23 @@ namespace shop_desktop.ViewModels
             Posts.Remove(postToDelete);
         }
 
-        // Metoda aktualizująca post w widoku po edycji
         public void UpdatePostInView(Post updatedPost)
         {
-            // Znajdź indeks edytowanego posta w kolekcji Posts
             int index = Posts.IndexOf(updatedPost);
             if (index != -1)
             {
-                // Zastąp stary post nowym, aby wywołać zdarzenie PropertyChanged
                 Posts[index] = updatedPost;
                 OnPropertyChanged(nameof(Posts));
             }
         }
         private void ExecuteContactAuthor(object parameter)
         {
-            MessageBox.Show("Contact form opened."); // Tu można umieścić logikę otwierania formularza
+            MessageBox.Show("Contact form opened."); 
         }
 
-        // Metoda wykonująca wysyłanie wiadomości
         private void ExecuteSendContactMessage(object parameter)
         {
-            MessageBox.Show("Message sent successfully!"); // Tu można umieścić logikę wysyłania wiadomości
+            MessageBox.Show("Message sent successfully!"); 
         }
         private void SortPosts(object parameter)
         {
@@ -190,13 +170,11 @@ namespace shop_desktop.ViewModels
             }
         }
 
-        // Metoda wywoływana przy zmianie właściwości
         protected void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
-        // Zdarzenie wywoływane przy zmianie właściwości
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

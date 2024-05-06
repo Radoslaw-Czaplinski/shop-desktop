@@ -1,54 +1,56 @@
 <Window x:Class="shop_desktop.Views.PostDetailsWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Post Details" Height="700" Width="500">
-  <ScrollViewer VerticalScrollBarVisibility="Auto">        
-    <StackPanel Margin="10">
-        <TextBlock x:Name="TitleTextBox" Text="{Binding Title}" FontSize="18" FontWeight="Bold" />
-        <TextBlock Text="{Binding Author}" FontStyle="Italic" Margin="0,10,0,0"/>
-        <TextBlock Text="{Binding DateAdded, StringFormat='Dodano: {0:dd.MM.yyyy HH:mm}'}" FontStyle="Italic" Margin="0,0,0,10"/>
-        <TextBlock x:Name="ContentTextBox" Text="{Binding Content}" TextWrapping="Wrap" Margin="0,10,0,0"/>
-        <Button Content="Edytuj" Click="EditButton_Click" Margin="5"/>
-        <Button Content="Usuń" Click="DeleteButton_Click" Margin="5,5,5,0"/>
-        <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-            <TextBox x:Name="ratingTextBox" Width="50" Text="{Binding Path=RatingToAdd, UpdateSourceTrigger=PropertyChanged}" />
-            <Button Content="Dodaj ocenę" Click="AddRatingButton_Click" Margin="5,0,0,0"/>
+        Title="Szczegóły Posta" Height="700" Width="500" Icon="D:\shop-desktop\shop-desktop\shop-desktop\mlogo.ico">
+    <ScrollViewer VerticalScrollBarVisibility="Auto">        
+        <StackPanel Margin="10">
+            <TextBlock x:Name="TitleTextBox" Text="{Binding Title}" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+            <TextBlock Text="{Binding Author}" FontStyle="Italic" Margin="0,0,0,5"/>
+            <TextBlock Text="{Binding DateAdded, StringFormat='Dodano: {0:dd.MM.yyyy HH:mm}'}" FontStyle="Italic" Margin="0,0,0,10"/>
+            <TextBlock x:Name="ContentTextBox" Text="{Binding Content}" TextWrapping="Wrap" Margin="0,0,0,10"/>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <Button Content="Edytuj" Click="EditButton_Click" Margin="0,0,5,0" Background="#007ACC" Foreground="White"/>
+                <Button Content="Usuń" Click="DeleteButton_Click" Margin="0,0,5,0" Background="#FF3333" Foreground="White"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                <TextBox x:Name="ratingTextBox" Width="50" Text="{Binding Path=RatingToAdd, UpdateSourceTrigger=PropertyChanged}" Margin="0,0,5,0"/>
+                <Button Content="Dodaj Ocenę" Click="AddRatingButton_Click" Background="#4CAF50" Foreground="White"/>
+            </StackPanel>
+            <ListBox x:Name="ratingsListBox" Margin="0,0,0,10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Author}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Date}" FontStyle="Italic"/>
+                            <TextBlock Text="{Binding Value}" FontWeight="Bold"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <TextBox x:Name="commentTextBox" Width="200" Height="100" Text="Wpisz swój komentarz..." Margin="0,0,0,10"/>
+            <Button Content="Dodaj Komentarz" Click="AddCommentButton_Click" Margin="0,0,0,10" Background="#007ACC" Foreground="White"/>
+            <ListBox x:Name="commentsListBox" Margin="0,0,0,10">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Author}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Date}" FontStyle="Italic"/>
+                            <TextBlock Text="{Binding Content}" FontWeight="Bold"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Button Content="Skontaktuj się z Autorem" Click="ContactAuthor_Click" Margin="0,0,0,10" Background="#FF9800" Foreground="White"/>
+            <StackPanel x:Name="ContactForm" Visibility="Collapsed" Margin="0,0,0,10">
+                <TextBlock Text="Imię:"/>
+                <TextBox x:Name="NameTextBox" Margin="0,0,0,5"/>
+                <TextBlock Text="Email:"/>
+                <TextBox x:Name="EmailTextBox" Margin="0,0,0,5"/>
+                <TextBlock Text="Wiadomość:"/>
+                <TextBox x:Name="MessageTextBox" Margin="0,0,0,10" Height="100" TextWrapping="Wrap"/>
+                <Button Content="Wyślij" Click="SendContactForm_Click" Margin="0,0,0,0" Background="#4CAF50" Foreground="White"/>
+            </StackPanel>
+            <TextBlock x:Name="ViewsCountTextBlock" Margin="0,0,0,10" FontWeight="Bold" HorizontalAlignment="Center"/>
         </StackPanel>
-        <ListBox x:Name="ratingsListBox" Margin="0,10,0,0">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Author}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding Date}" FontStyle="Italic"/>
-                        <TextBlock Text="{Binding Value}" FontWeight="Bold"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <TextBox x:Name="commentTextBox" Width="200" Height="100" Text="Wpisz komentarz..." Margin="0,10,0,0"/>
-        <Button Content="Dodaj komentarz" Click="AddCommentButton_Click" Margin="0,5,0,0" />
-        <ListBox x:Name="commentsListBox" Margin="0,10,0,0">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Author}" FontWeight="Bold"/>
-                        <TextBlock Text="{Binding Date}" FontStyle="Italic"/>
-                        <TextBlock Text="{Binding Content}" FontWeight="Bold"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button Content="Skontaktuj się z autorem" Click="ContactAuthor_Click" Margin="10"/>
-        <StackPanel x:Name="ContactForm" Visibility="Collapsed" Margin="10">
-            <TextBlock Text="Imię:"/>
-            <TextBox x:Name="NameTextBox" Margin="0,0,0,10"/>
-            <TextBlock Text="Email:"/>
-            <TextBox x:Name="EmailTextBox" Margin="0,0,0,10"/>
-            <TextBlock Text="Wiadomość:"/>
-            <TextBox x:Name="MessageTextBox" Margin="0,0,0,10" Height="100" TextWrapping="Wrap"/>
-            <Button Content="Wyślij" Click="SendContactForm_Click" Margin="10,5,10,0"/>
-        </StackPanel>
-        <TextBlock x:Name="ViewsCountTextBlock" Margin="0,10,0,10" FontWeight="Bold" HorizontalAlignment="Center"/>
-    </StackPanel>
-  </ScrollViewer>    
+    </ScrollViewer>    
 </Window>

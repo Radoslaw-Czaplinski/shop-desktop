@@ -22,7 +22,7 @@ namespace shop_desktop
     {
         App app = new App();
         app.InitializeComponent();
-        app.Run();  // Błąd mógł wystąpić podczas uruchamiania aplikacji
+        app.Run();  
     }
 }
 }
