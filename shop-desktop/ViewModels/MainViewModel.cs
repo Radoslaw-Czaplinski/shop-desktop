@@ -115,6 +115,7 @@ namespace shop_desktop.ViewModels
             }
         }
 
+
         private void EditPost(object parameter)
         {
             var postToEdit = parameter as Post;

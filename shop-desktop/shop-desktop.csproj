@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
         <OutputType>WinExe</OutputType>
@@ -9,6 +9,7 @@
         <UseWPF>true</UseWPF>
         <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
         <EnableWindowsTargeting>true</EnableWindowsTargeting>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
 
     <ItemGroup>
@@ -24,7 +25,10 @@
       <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
       <PackageReference Include="Microsoft.Identity.Client" Version="4.59.0" />
       <PackageReference Include="Microsoft.Identity.Client.Broker" Version="4.59.0" />
+      <PackageReference Include="Moq" Version="4.20.70" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+      <PackageReference Include="Microsoft.Windows.Compatibility" Version="5.0.2" />
+      <PackageReference Include="NUnit" Version="3.13.2" />
     </ItemGroup>
 
 </Project>

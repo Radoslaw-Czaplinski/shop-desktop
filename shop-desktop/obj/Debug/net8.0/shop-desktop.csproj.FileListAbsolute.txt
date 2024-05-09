@@ -1,0 +1,6 @@
+D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0\shop-desktop.csproj.AssemblyReference.cache
+D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0\shop-desktop.GeneratedMSBuildEditorConfig.editorconfig
+D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0\shop-desktop.AssemblyInfoInputs.cache
+D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0\shop-desktop.AssemblyInfo.cs
+D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0\shop-desktop.csproj.CoreCompileInputs.cache
+D:\shop-desktop\shop-desktop\shop-desktop\obj\Debug\net8.0\shop-desktop.sourcelink.json
