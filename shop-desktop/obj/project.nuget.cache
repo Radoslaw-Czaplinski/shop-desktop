@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "k4AI7OuBxb53xQ3ZLfrBkHC/z52vQ9Q55gFVJErTxoHP6FNpW4NvDtM/YbYgOkAQvcrItS63gXBTsGZhYd4k8w==",
+  "dgSpecHash": "SVpyRyUjp8BhEb50aqosMtCISRAjV9MNrtIsxnzOU9scrz4T+g5E7cT7Qp6QWmhqtdOSoKdxXJ9rkxvrKkOXiw==",
   "success": true,
   "projectFilePath": "D:\\shop-desktop\\shop-desktop\\shop-desktop\\shop-desktop.csproj",
   "expectedPackageFiles": [
@@ -19,7 +19,10 @@
     "C:\\Users\\Radek\\.nuget\\packages\\microsoft.identity.client\\4.59.0\\microsoft.identity.client.4.59.0.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\microsoft.identity.client.broker\\4.59.0\\microsoft.identity.client.broker.4.59.0.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\microsoft.identity.client.nativeinterop\\0.13.14\\microsoft.identity.client.nativeinterop.0.13.14.nupkg.sha512",
-    "C:\\Users\\Radek\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.22.0\\microsoft.identitymodel.abstractions.6.22.0.nupkg.sha512",
+    "C:\\Users\\Radek\\.nuget\\packages\\microsoft.identitymodel.abstractions\\7.5.1\\microsoft.identitymodel.abstractions.7.5.1.nupkg.sha512",
+    "C:\\Users\\Radek\\.nuget\\packages\\microsoft.identitymodel.jsonwebtokens\\7.5.1\\microsoft.identitymodel.jsonwebtokens.7.5.1.nupkg.sha512",
+    "C:\\Users\\Radek\\.nuget\\packages\\microsoft.identitymodel.logging\\7.5.1\\microsoft.identitymodel.logging.7.5.1.nupkg.sha512",
+    "C:\\Users\\Radek\\.nuget\\packages\\microsoft.identitymodel.tokens\\7.5.1\\microsoft.identitymodel.tokens.7.5.1.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\microsoft.netcore.platforms\\5.0.1\\microsoft.netcore.platforms.5.0.1.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\microsoft.web.webview2\\1.0.864.35\\microsoft.web.webview2.1.0.864.35.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
@@ -56,6 +59,7 @@
     "C:\\Users\\Radek\\.nuget\\packages\\system.directoryservices.protocols\\5.0.0\\system.directoryservices.protocols.5.0.0.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\system.drawing.common\\5.0.0\\system.drawing.common.5.0.0.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\system.formats.asn1\\5.0.0\\system.formats.asn1.5.0.0.nupkg.sha512",
+    "C:\\Users\\Radek\\.nuget\\packages\\system.identitymodel.tokens.jwt\\7.5.1\\system.identitymodel.tokens.jwt.7.5.1.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\system.io.filesystem.accesscontrol\\5.0.0\\system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\system.io.packaging\\5.0.0\\system.io.packaging.5.0.0.nupkg.sha512",
     "C:\\Users\\Radek\\.nuget\\packages\\system.io.pipes.accesscontrol\\5.0.0\\system.io.pipes.accesscontrol.5.0.0.nupkg.sha512",

@@ -1,44 +1,24 @@
 using NUnit.Framework;
 using shop_desktop.Models;
 
-namespace Tests
+namespace shop_desktop.Tests
 {
-    public class CommentPropertyTests
+    [TestFixture]
+    public class CommentTests
     {
         [Test]
-        public void Comment_Author_Can_Be_Set_And_Get_Correctly()
+        public void Comment_PropertiesSetCorrectly()
         {
-            string expectedAuthor = "Sample Author";
-            var comment = new Comment();
+            var comment = new Comment
+            {
+                Id = 1,
+                Content = "Test content",
+                AuthorId = "123"
+            };
 
-            comment.Author = expectedAuthor;
-            string actualAuthor = comment.Author;
-
-            Assert.AreEqual(expectedAuthor, actualAuthor);
-        }
-
-        [Test]
-        public void Comment_Date_Can_Be_Set_And_Get_Correctly()
-        {
-            var expectedDate = DateTime.Now;
-            var comment = new Comment();
-
-            comment.Date = expectedDate;
-            var actualDate = comment.Date;
-
-            Assert.AreEqual(expectedDate, actualDate);
-        }
-
-        [Test]
-        public void Comment_Content_Can_Be_Set_And_Get_Correctly()
-        {
-            string expectedContent = "Sample Content";
-            var comment = new Comment();
-
-            comment.Content = expectedContent;
-            string actualContent = comment.Content;
-
-            Assert.AreEqual(expectedContent, actualContent);
+            Assert.AreEqual(1, comment.Id);
+            Assert.AreEqual("Test content", comment.Content);
+            Assert.AreEqual("123", comment.AuthorId);
         }
     }
 }

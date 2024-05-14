@@ -8,67 +8,79 @@ namespace shop_desktop.Views
 {
     public partial class AddPostWindow : Window
     {
-        private readonly PostService postService;
-        private readonly MainViewModel mainViewModel;
-        private readonly Post postToEdit;
-        private readonly PostDetailsWindow postDetailsWindow;
+        private readonly PostService _postService;
+        private readonly MainViewModel _mainViewModel;
+        private readonly AuthenticationService _authenticationService;
+        private readonly Post _postToEdit;
         public event Action<Post> PostUpdated;
-
-        public AddPostWindow(PostService postService, MainViewModel mainViewModel, Post postToEdit)
+        public AddPostWindow(PostService postService, MainViewModel mainViewModel, AuthenticationService authenticationService, Post postToEdit)
         {
             InitializeComponent();
-            this.postService = postService;
-            this.mainViewModel = mainViewModel;
-            this.postToEdit = postToEdit;
-            this.DataContext = postToEdit;
+            _postService = postService;
+            _mainViewModel = mainViewModel;
+            _authenticationService = authenticationService;
+            _postToEdit = postToEdit;
+            DataContext = _postToEdit;
            
             Loaded += (sender, e) =>
             {
-                if (postToEdit != null)
+                if (_postToEdit != null)
                 {
-                    TitleTextBox.Text = postToEdit.Title;
-                    ContentTextBox.Text = postToEdit.Content;
+                    TitleTextBox.Text = _postToEdit.Title;
+                    ContentTextBox.Text = _postToEdit.Content;
                     AuthorTextBox.IsReadOnly = true;
-                    AuthorTextBox.Text = postToEdit.Author;
+                    AuthorTextBox.Text = _postToEdit.AuthorId;
                 }
             };
-        }
-
-        private void AddButton_Click(object sender, RoutedEventArgs e)
+        }     
+        private async void AddButton_Click(object sender, RoutedEventArgs e)
         {
             string title = TitleTextBox.Text;
             string content = ContentTextBox.Text;
-            string author = AuthorTextBox.Text;
-            DateTime dateAdded = DateTime.Now;
 
-            if (!string.IsNullOrEmpty(title) && !string.IsNullOrEmpty(content))
+            if (_authenticationService != null)
             {
-                if (postToEdit != null)
+                string userId = _authenticationService.UserId;
+
+                if (_postToEdit == null)
                 {
-                    postToEdit.Title = title;
-                    postToEdit.Content = content;
-                    postService.UpdatePost(postToEdit);
+                    var success = await _postService.AddPostAsync(title, content, userId);
+                    if (success)
+                    {
+                        MessageBox.Show("Post został dodany pomyślnie.");
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Dodawanie posta nie powiodło się. Spróbuj ponownie.");
+                    }
                 }
                 else
                 {
-                    postService.AddPost(title, content, author, dateAdded);
+                    _postToEdit.Title = title;
+                    _postToEdit.Content = content;
+
+                    var success = await _postService.UpdatePostAsync(_postToEdit);
+                    if (success)
+                    {
+                        MessageBox.Show("Post został zaktualizowany pomyślnie.");
+                        this.Close();
+                        PostUpdated?.Invoke(_postToEdit);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Aktualizacja posta nie powiodła się. Spróbuj ponownie.");
+                    }
                 }
-
-                mainViewModel.LoadPosts();
-
-                Close();
             }
             else
             {
-                MessageBox.Show("Proszę wypełnić tytuł i treść posta.");
+                MessageBox.Show("AuthenticationService nie został zainicjowany.");
             }
         }
-
-
-
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            this.Close(); 
+            Close(); 
         }
     }
 }

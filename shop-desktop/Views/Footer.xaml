@@ -5,6 +5,8 @@
         <Border x:Name="ContactFormBorder" BorderBrush="Gray" BorderThickness="1" Margin="10" Visibility="Visible">
             <StackPanel>
                 <TextBlock Text="Zgłoś problem lub sugestię" FontWeight="Bold" Margin="5"/>
+                <TextBlock Text="Tytuł problemu lub sugestii" FontStyle="Italic" Margin="5"/>
+                <TextBox x:Name="IssueTitleTextBox" Width="250" Margin="5"/>
                 <TextBlock Text="Opisz problem lub sugestię" FontStyle="Italic" Margin="5"/>
                 <TextBox x:Name="IssueTextBox" Width="250" Height="100" Margin="5"/>
                 <Button Content="Wyślij" Click="SendIssueButton_Click" Margin="5" Background="#007ACC" Foreground="White"/>

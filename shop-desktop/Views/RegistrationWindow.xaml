@@ -18,9 +18,9 @@
         <Label Content="Username:" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center"/>
         <TextBox x:Name="UsernameTextBox" Grid.Row="1" Grid.Column="1" Margin="5"/>
         <Label Content="Password:" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center"/>
-        <PasswordBox x:Name="PasswordBox" Grid.Row="2" Grid.Column="1" Margin="5"/>
+        <PasswordBox x:Name="PasswordTextBox" Grid.Row="2" Grid.Column="1" Margin="5"/>
         <StackPanel Grid.Row="3" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="10">
-            <Button Content="Register" Margin="5" Padding="10,5" Background="#007ACC" Foreground="White"/>
+            <Button Content="Register" Click="Register_Click" Margin="5" Padding="10,5" Background="#007ACC" Foreground="White"/>
             <Button Content="Cancel" Margin="5" Padding="10,5" Click="CancelButton_Click" Background="#CCCCCC"/>
         </StackPanel>
     </Grid>

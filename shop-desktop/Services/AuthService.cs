@@ -12,7 +12,7 @@ namespace shop_desktop.Services
         public AuthService()
         {
             _httpClient = new HttpClient();
-            _httpClient.BaseAddress = new Uri("https://example.com/api/"); // Adres Twojego API
+            _httpClient.BaseAddress = new Uri("https://bd73-82-139-13-67.ngrok-free.app/"); // Adres Twojego API
             _httpClient.DefaultRequestHeaders.Accept.Clear();
             _httpClient.DefaultRequestHeaders.Accept.Add(new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }

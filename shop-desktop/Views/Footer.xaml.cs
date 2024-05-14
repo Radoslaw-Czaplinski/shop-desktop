@@ -10,11 +10,9 @@ namespace shop_desktop.Views
         {
             InitializeComponent();
         }
-
         private void SendIssueButton_Click(object sender, RoutedEventArgs e)
         {
             string issueDescription = IssueTextBox.Text;
-
 
             MessageBox.Show("Zgłoszenie zostało wysłane.", "Potwierdzenie", MessageBoxButton.OK, MessageBoxImage.Information);
             IssueTextBox.Text = ""; 

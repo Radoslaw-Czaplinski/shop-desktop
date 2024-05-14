@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using shop_desktop.Models;
+using System;
 
 namespace Tests
 {
@@ -30,15 +31,27 @@ namespace Tests
         }
 
         [Test]
-        public void Rating_Value_Can_Be_Set_And_Get_Correctly()
+        public void Rating_Score_Can_Be_Set_And_Get_Correctly()
         {
-            int expectedValue = 5;
+            int expectedScore = 5;
             var rating = new Rating();
 
-            rating.Value = expectedValue;
-            int actualValue = rating.Value;
+            rating.Score = expectedScore;
+            int actualScore = rating.Score;
 
-            Assert.AreEqual(expectedValue, actualValue);
+            Assert.AreEqual(expectedScore, actualScore);
+        }
+
+        [Test]
+        public void Rating_UserId_Can_Be_Set_And_Get_Correctly()
+        {
+            int expectedUserId = 1;
+            var rating = new Rating();
+
+            rating.UserId = expectedUserId;
+            int actualUserId = rating.UserId;
+
+            Assert.AreEqual(expectedUserId, actualUserId);
         }
     }
 }
